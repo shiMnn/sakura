@@ -35,4 +35,15 @@ public class PlayerManager : SingletonClass<PlayerManager> {
     public List<Player> GetPlayers() {
         return m_palyers;
     }
+
+    /// <summary>
+    /// ターンを切り替える
+    /// </summary>
+    public void TurnChange() {
+        var turnPlayer = this.GetTurnPlayer();
+        var waitPlayer = this.GetOpponentPlayer(turnPlayer);
+
+        turnPlayer.OffMyTurn();
+        waitPlayer.OnMyTurn();
+    }
 }

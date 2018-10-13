@@ -25,6 +25,10 @@ public class FieldEditor : EditorWindow {
         window.ShowUtility();
     }
 
+    private void Update() {
+        Repaint();
+    }
+
     private void OnGUI() {
         if (PlayerManager.Instance != null) {
             m_players[(int)PlayerID.Self] = PlayerManager.Instance.GetPlayer(PlayerID.Self);
@@ -63,7 +67,6 @@ public class FieldEditor : EditorWindow {
             Texture texture = (false) ? texture_fieldZone : texture_fieldZoneNone;
             GUI.DrawTexture(new Rect(pos, FIELD_SIZE), texture, ScaleMode.ScaleToFit);
         }
-
 
         for (int i = 0; i < GameDef.HAND_ZONE_MAX_COUNT; ++i) {
             var card = player.Hand.GetCard(i);

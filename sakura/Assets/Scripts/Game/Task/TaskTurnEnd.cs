@@ -1,5 +1,8 @@
 ﻿public class TaskTurnEnd : TaskNodeBase {
     public override bool Setup() {
+        // プレイヤーの権利を対戦相手に渡す
+        PlayerManager.Instance.TurnChange();
+
         return true;
     }
 
